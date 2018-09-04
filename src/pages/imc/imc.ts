@@ -19,7 +19,7 @@ export class ImcPage {
   altura : number;
   msg : string;
   nome : string;
-  idade : number;
+  sexo : string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -27,11 +27,11 @@ export class ImcPage {
     var valorImc = this.peso / (this.altura*this.altura);
     valorImc = parseFloat(valorImc.toFixed(2));
     this.geraMsg(valorImc);
-
+      
 }
 
   geraMsg(valorImc: number){
-    this.msg = this.nome + "voce tem "+ this.idade +" anos, O seu imc é " + valorImc + " e você esta";
+    this.msg = this.nome + ","+ this.sexo +" O seu imc é " + valorImc + " e você esta";
 
     if(valorImc < 18.5)
       this.msg += " abaixo do peso";
