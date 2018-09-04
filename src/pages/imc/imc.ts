@@ -18,33 +18,37 @@ export class ImcPage {
   peso : number;
   altura : number;
   msg : string;
+  MsgIMC : string;
   nome : string;
   sexo : string;
+  dataNascimento : string;
+  idade : number;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   calcular(){
     var valorImc = this.peso / (this.altura*this.altura);
     valorImc = parseFloat(valorImc.toFixed(2));
+    
+    var hoje = new Date()
+    var aniversario = new Date(this.dataNascimento)
+    this.idade = hoje.getFullYear() - aniversario.getFullYear();
+     
     this.geraMsg(valorImc);
-      
 }
+ 
+
 
   geraMsg(valorImc: number){
-    this.msg = this.nome + ","+ this.sexo +" O seu imc é " + valorImc + " e você esta";
+     this.msg = `Nome: ${this.nome}, data Nascimento ${this.dataNascimento}, 
+     Idade: ${this.idade}, Sexo: ${this.sexo} Valor do Imc: ${valorImc}`
+    if (this.sexo == "Feminino"){
+       if (this.idade <= 6 && valorImc >= 14,3 && 16,1){
+         this.msg += "Normal"
+       }
+    }else{
 
-    if(valorImc < 18.5)
-      this.msg += " abaixo do peso";
-    else if (valorImc < 24.5)
-      this.msg += " no peso normal";
-    else 
-      this.msg += " acima do peso";
+    }
+
   }
-
-
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ImcPage');
-  }
-
 }
