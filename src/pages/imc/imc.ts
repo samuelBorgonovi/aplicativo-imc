@@ -221,7 +221,27 @@ export class ImcPage {
 
     }
 
-    this.msg = `Nome: ${this.nome}, Data Nascimento: ${this.dataNascimento}, 
+    this.msg = `Nome: ${this.nome}, Data Nascimento: ${this.dateToBrString(new Date(this.dataNascimento))}, 
       Idade: ${this.idade}, Sexo: ${this.sexo}, Valor do Imc: ${valorImc} Status: ${status}.`
+  }
+  //FORMATAR DATA NASCIMENTO
+  dateToBrString(data: Date): string {
+    let dia: string = '';
+    let mes: string = '';
+    let ano = data.getFullYear();
+
+    if (data.getDate().toString().length == 1) {
+      dia = `0${data.getDate()+1}`;
+    } else {
+      dia = `${data.getDate()+1}`;
+    }
+
+    if ((data.getMonth() + 1).toString().length == 1) {
+      mes = `0${data.getMonth() + 1}`;
+    } else {
+      mes = `${data.getMonth() + 1}`;
+    }
+
+    return `${dia}/${mes}/${ano}`;
   }
 }
