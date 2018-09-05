@@ -121,6 +121,14 @@ export class ImcPage {
         status = "Obesidade";
       }
 
+      if (this.idade > 15 && valorImc >= 18.5 && valorImc <= 24.9) {
+        status = "Normal";
+      } else if (valorImc > 24.9 && valorImc <= 29.9) {
+        status = "Sobrepeso";
+      } else if (valorImc > 29.9) {
+        status = "Obesidade";
+      }
+
     } else {
       if (this.idade <= 6 && valorImc >= 14.5 && valorImc <= 16.6) {
         status = "Normal";
@@ -202,10 +210,18 @@ export class ImcPage {
         status = "Obesidade";
       }
 
+      if (this.idade > 15 && valorImc >= 18.5 && valorImc <= 24.9) {
+        status = "Normal";
+      } else if (valorImc > 24.9 && valorImc <= 29.9) {
+        status = "Sobrepeso";
+      } else if (valorImc > 29.9) {
+        status = "Obesidade";
+      }
+
 
     }
 
-    this.msg = `Nome: ${this.nome}, data Nascimento ${this.dataNascimento}, 
-      Idade: ${this.idade}, Sexo: ${this.sexo} Valor do Imc: ${valorImc} Status: ${status}`
+    this.msg = `Nome: ${this.nome}, Data Nascimento: ${this.dataNascimento}, 
+      Idade: ${this.idade}, Sexo: ${this.sexo}, Valor do Imc: ${valorImc} Status: ${status}.`
   }
 }
