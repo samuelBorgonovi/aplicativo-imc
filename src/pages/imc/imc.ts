@@ -41,14 +41,12 @@ export class ImcPage {
 
   geraMsg(valorImc: number){
      this.msg = `Nome: ${this.nome}, data Nascimento ${this.dataNascimento}, 
-     Idade: ${this.idade}, Sexo: ${this.sexo} Valor do Imc: ${valorImc}`
+     Idade: ${this.idade}, Sexo: ${this.sexo} Valor do Imc: ${valorImc} Status: ${this.MsgIMC}`
     if (this.sexo == "Feminino"){
-       if (this.idade <= 6 && valorImc >= 14,3 && 16,1){
-         this.msg += "Normal"
+       if (this.idade <= 6 && valorImc >= 14,3 && 16,1){this.MsgIMC += "Normal";
+       }else if(valorImc >= 16.1 && 17.4){this.MsgIMC += "Sobrepeso";
+       }else if (valorImc >= 17.4){this.MsgIMC += "Obesidade";
        }
-    }else{
-
+      }
     }
-
   }
-}
